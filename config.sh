@@ -75,9 +75,9 @@ if [ $PACKAGE_TYPE = "CMAKE" ]; then
         echo "on a vizkit widget"
         echo
         echo "What should be the class name ? (Press ENTER when finished)"
-	read classname
+	read CLASS_NAME
         echo "What is the type that you want to display ? (Press ENTER when finished)"
-	read typename
+	read TYPE_NAME
 
         apply_template_value projectname $PACKAGE_SHORT_NAME
         apply_template_value classname $CLASS_NAME
