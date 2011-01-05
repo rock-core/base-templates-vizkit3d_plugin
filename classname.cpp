@@ -7,7 +7,7 @@ struct classname::Data {
     //
     // Making a copy is required because of how OSG works
     typename data;
-}
+};
 
 
 classname::classname()
