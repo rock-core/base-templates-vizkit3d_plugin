@@ -5,11 +5,13 @@
 
 #Check for name of project
 # Extract directory for config.sh
-SCRIPT_DIR=`echo $0 | sed 's/\([^/]*\)$//'`
-# Retrieve Absolute dir from subshell
-DIR=$(cd "$SCRIPT_DIR" && pwd)
+SCRIPT_DIR=`dirname $O`
+DIR=`dirname $0`
+cd $DIR
+DIR=`pwd`
 # Extract Projectname
-PACKAGE_DIR_NAME=`echo $DIR | sed 's/\/$//g' | sed 's/.*\/\([^/]*\)$/\1/g'`
+PACKAGE_DIR_NAME=`dirname $DIR`
+PACKAGE_DIR_NAME=`basename $PACKAGE_DIR_NAME`
 
 usage() {
     echo "usage: $0"
