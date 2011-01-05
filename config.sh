@@ -22,9 +22,9 @@ usage() {
 apply_template_value() {
     name=$1
     value=$2
-    find . -type f -exec sed -i "s/$name/$value/" {} \;
+    find . -type f -exec sed -i "s/$name/$value/g" {} \;
     find . -type f -name "*$name*" | while read path; do
-        newpath=`echo $path | sed "s/$name/$value/"`
+        newpath=`echo $path | sed "s/$name/$value/g"`
         mv $path $newpath
     done
 }
