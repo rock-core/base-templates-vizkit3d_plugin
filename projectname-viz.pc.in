@@ -1,0 +1,12 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=@CMAKE_INSTALL_PREFIX@
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: projectname-viz
+Description: vizKit plugin for the projectname library
+Depends: projectname @projectname-viz_PKGCONFIG_DEPS@
+Version: @PROJECT_VERSION@
+Libs: -L${libdir} -lprojectname-viz
+Cflags: -I${includedir}
+
