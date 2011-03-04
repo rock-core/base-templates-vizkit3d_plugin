@@ -5,7 +5,11 @@
 
 #Check for name of project
 # Extract directory for config.sh
-SCRIPT_DIR=`dirname $O`
+
+set -e
+
+SCRIPT=$0
+SCRIPT_DIR=`dirname $SCRIPT`
 DIR=`dirname $0`
 cd $DIR
 DIR=`pwd`
