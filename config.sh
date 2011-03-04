@@ -15,7 +15,7 @@ PACKAGE_DIR_NAME=`basename $PACKAGE_DIR_NAME`
 
 usage() {
     echo "usage: $0"
-    echo "This script sets up a vizkit plugin insdde an already existing"
+    echo "This script sets up a vizkit plugin insde an already existing"
     echo "cmake package. It requests required information from the user when needed."
 }
 
