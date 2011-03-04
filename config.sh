@@ -77,9 +77,23 @@ if [ $PACKAGE_TYPE = "CMAKE" ]; then
         echo "on a vizkit widget"
         echo
         echo "What should be the class name ? (Press ENTER when finished)"
+        echo "This should be a simple name as PathVisualization, with no"
+        echo "namespaces. The generated class will be put in the vizkit"
+        echo "namespace"
 	read CLASS_NAME
+        if test -z "$CLASS_NAME"; then
+            echo "the class name cannot be empty"
+            exit 1
+        elif ( echo $CLASS_NAME | grep -q ':' ); then
+            echo "the class name cannot contain namespace specification"
+            exit 1
+        fi
         echo "What is the type that you want to display ? (Press ENTER when finished)"
+        echo "Please give the full type (i.e. with namespace) as e.g.  base::Time"
 	read TYPE_NAME
+        if test -z "$TYPE_NAME"; then
+            echo "the type name cannot be empty"
+        fi
 
         apply_template_value projectname $PACKAGE_SHORT_NAME
         apply_template_value classname $CLASS_NAME
