@@ -1,3 +1,4 @@
+#include <iostream>
 #include "classname.hpp"
 
 using namespace vizkit;
@@ -36,5 +37,9 @@ void classname::updateMainNode ( osg::Node* node )
 void classname::updateDataIntern(typename const& value)
 {
     p->data = value;
+    std::cout << "got new sample data" << std::endl;
 }
+
+//Macro that makes this plugin loadable in ruby, this is optional.
+VizkitQtPlugin(classname)
 
