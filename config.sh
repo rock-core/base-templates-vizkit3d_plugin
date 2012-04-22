@@ -25,7 +25,7 @@ usage() {
 
 apply_template_value() {
     name=$1
-    value=$2
+    value=`echo $2 | sed 's/\//\\\\\//g'`
     find . -type f -exec sed -i "s/$name/$value/g" {} \;
     find . -type f -name "*$name*" | while read path; do
         newpath=`echo $path | sed "s/$name/$value/g"`
@@ -93,15 +93,26 @@ if [ $PACKAGE_TYPE = "CMAKE" ]; then
             exit 1
         fi
         echo "What is the type that you want to display ? (Press ENTER when finished)"
-        echo "Please give the full type (i.e. with namespace) as e.g.  base::Time"
+        echo "Please give the full type (i.e. with namespace) as e.g.  base::samples::RigidBodyState"
 	read TYPE_NAME
         if test -z "$TYPE_NAME"; then
             echo "the type name cannot be empty"
         fi
 
+        echo "Which header is defining the entered type? (Press ENTER when finished)"
+        echo "Please give the header path as e.g.  base/samples/rigid_body_state.h"
+	read TYPE_HEADER
+        if test -z "$TYPE_HEADER"; then
+            echo "the head path cannot be empty"
+        fi
+
+        TYPELIB_TYPE=`echo "/$TYPE_NAME" | sed "s/::/\//g"`
+
         apply_template_value projectname $PACKAGE_SHORT_NAME
         apply_template_value classname $CLASS_NAME
         apply_template_value typename $TYPE_NAME
+        apply_template_value typeheader $TYPE_HEADER
+        apply_template_value typelibtype $TYPELIB_TYPE
 fi
 # end of CMAKE-TEMPLATE-ADAPTION
 
