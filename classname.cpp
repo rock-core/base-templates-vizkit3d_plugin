@@ -1,7 +1,7 @@
 #include <iostream>
 #include "classname.hpp"
 
-using namespace vizkit;
+using namespace vizkit3d;
 
 struct classname::Data {
     // Copy of the value given to updateDataIntern.
@@ -23,7 +23,7 @@ classname::~classname()
 
 osg::ref_ptr<osg::Node> classname::createMainNode()
 {
-    // Geode is a common node used for vizkit plugins. It allows to display
+    // Geode is a common node used for vizkit3d plugins. It allows to display
     // "arbitrary" geometries
     return new osg::Geode();
 }

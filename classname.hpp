@@ -2,14 +2,14 @@
 #define projectname_classname_H
 
 #include <boost/noncopyable.hpp>
-#include <vizkit/Vizkit3DPlugin.hpp>
+#include <vizkit3d/Vizkit3DPlugin.hpp>
 #include <osg/Geode>
 #include <typeheader>
 
-namespace vizkit
+namespace vizkit3d
 {
     class classname
-        : public vizkit::Vizkit3DPlugin<typename>
+        : public vizkit3d::Vizkit3DPlugin<typename>
         , boost::noncopyable
     {
     Q_OBJECT
@@ -18,7 +18,7 @@ namespace vizkit
         ~classname();
 
     Q_INVOKABLE void updateData(typename const &sample)
-    {vizkit::Vizkit3DPlugin<typename>::updateData(sample);}
+    {vizkit3d::Vizkit3DPlugin<typename>::updateData(sample);}
 
     protected:
         virtual osg::ref_ptr<osg::Node> createMainNode();

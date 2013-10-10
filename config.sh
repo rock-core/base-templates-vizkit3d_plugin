@@ -19,7 +19,7 @@ PACKAGE_DIR_NAME=`basename $PACKAGE_DIR_NAME`
 
 usage() {
     echo "usage: $0"
-    echo "This script sets up a vizkit plugin insde an already existing"
+    echo "This script sets up a vizkit3d plugin insde an already existing"
     echo "cmake package. It requests required information from the user when needed."
 }
 
@@ -46,7 +46,7 @@ else
 	PACKAGE_SHORT_NAME=$PACKAGE_DIR_NAME
 fi
 
-echo "Do you want to start the configuration of the vizkit plugin for project ${PACKAGE_SHORT_NAME}"
+echo "Do you want to start the configuration of the vizkit3d plugin for project ${PACKAGE_SHORT_NAME}"
 
 # Check and interprete answer of "Proceed [y|n]"
 ANSWER=""
@@ -78,11 +78,11 @@ if [ $PACKAGE_TYPE = "CMAKE" ]; then
 	echo "------------------------------------------"
         echo "a VizKit plugin is essentially a class that is designed"
         echo "to display a certain data type (= C++ class / structure)"
-        echo "on a vizkit widget"
+        echo "on a vizkit3d widget"
         echo
         echo "What should be the class name ? (Press ENTER when finished)"
         echo "This should be a simple name as PathVisualization, with no"
-        echo "namespaces. The generated class will be put in the vizkit"
+        echo "namespaces. The generated class will be put in the vizkit3d"
         echo "namespace"
 	read CLASS_NAME
         if test -z "$CLASS_NAME"; then
@@ -120,7 +120,7 @@ fi
 rm config.sh
 
 git add .
-git commit -m "initial vizkit plugin code"
+git commit -m "initial vizkit3d plugin code"
 
 echo "Done."
 
